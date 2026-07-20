@@ -23,7 +23,7 @@ sales_source_path = f"{source_root}/sales/"
 products_source_path = f"{source_root}/AdventureWorks_Products.csv"
 categories_source_path = f"{source_root}/AdventureWorks_Product_Categories.csv"
 subcategories_source_path = f"{source_root}/AdventureWorks_Product_Subcategories.csv"
-territories_source_path = f"{source_root}/AdventureWorks-Territories.csv"
+territories_source_path = f"{source_root}/AdventureWorks_Territories.csv"
 returns_source_path = f"{source_root}/AdventureWorks_Returns.json"
 
 # COMMAND ----------
