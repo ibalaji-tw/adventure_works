@@ -1,10 +1,11 @@
 # Databricks notebook source
+# MAGIC %run ../00_setup/00_setup
+
 # Quality gate — run after Silver and Gold have been built.
 
 # COMMAND ----------
 
-# STEP 0: Configuration — load shared table names and catalog settings.
-# MAGIC %run ../00_setup/00_setup
+# STEP 0: Configuration — shared setup was loaded at the start of this notebook.
 
 from datetime import datetime
 from pyspark.sql import functions as F

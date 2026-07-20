@@ -1,4 +1,4 @@
-# From-scratch build order
+# Databricks Medallion pipeline build order
 
 This folder is the clean, incremental implementation. Each notebook is small
 enough to understand and review before moving to the next layer.
@@ -20,7 +20,9 @@ schemas: `adventure_works.bronze`, `adventure_works.silver`, and
 `00_setup/00_setup.py` is the single setup notebook. It creates the catalog and
 schemas, then contains all source paths, destination table names, catalog/schema
 names, and the workspace orchestration path. Every Bronze, Silver, Gold,
-quality, and orchestration notebook loads it in its first cell with `%run`.
+quality, and orchestration notebook loads it as the first command in its first
+cell with `# MAGIC %run ../00_setup/00_setup`. Keeping `%run` first prevents
+Databricks from interpreting it as an IPython line magic.
 
 ## Build order
 

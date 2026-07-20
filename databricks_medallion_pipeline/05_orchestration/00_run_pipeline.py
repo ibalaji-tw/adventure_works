@@ -1,11 +1,12 @@
 # Databricks notebook source
-# Simple dependency-aware orchestration for the from-scratch project.
+# MAGIC %run ../00_setup/00_setup
+
+# Simple dependency-aware orchestration for the Databricks Medallion project.
 # Update this once after uploading the folder to your workspace.
 
 # COMMAND ----------
 
-# STEP 0: Configuration — load the workspace path from the shared notebook.
-# MAGIC %run ../00_setup/00_setup
+# STEP 0: Configuration — shared setup was loaded at the start of this notebook.
 
 base_path = workspace_base_path
 

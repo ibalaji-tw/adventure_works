@@ -1,10 +1,11 @@
 # Databricks notebook source
+# MAGIC %run ../00_setup/00_setup
+
 # Silver 03 — Clean product and product hierarchy tables.
 
 # COMMAND ----------
 
-# STEP 0: Configuration — load shared source and destination names.
-# MAGIC %run ../00_setup/00_setup
+# STEP 0: Configuration — shared setup was loaded at the start of this notebook.
 
 # STEP 1: Imports — load Spark functions for selection and casting.
 from pyspark.sql import functions as F

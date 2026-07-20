@@ -1,4 +1,4 @@
--- Dashboard queries over the from-scratch Gold tables.
+-- Dashboard queries over the Databricks Medallion Gold tables.
 USE CATALOG adventure_works;
 USE SCHEMA gold;
 

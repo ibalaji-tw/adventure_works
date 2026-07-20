@@ -1,4 +1,6 @@
 # Databricks notebook source
+# MAGIC %run ../00_setup/00_setup
+
 # MAGIC %md
 # MAGIC # Bronze 01 — Ingest Customers
 # MAGIC
@@ -10,8 +12,7 @@
 
 # COMMAND ----------
 
-# STEP 0: Configuration — load shared source and destination names.
-# MAGIC %run ../00_setup/00_setup
+# STEP 0: Configuration — shared setup was loaded at the start of this notebook.
 
 # STEP 1: Set the customer source and target from shared configuration.
 data_path = customers_source_path

@@ -1,10 +1,11 @@
 # Databricks notebook source
+# MAGIC %run ../00_setup/00_setup
+
 # Gold 01 — Sales trend and commercial KPI table.
 
 # COMMAND ----------
 
-# STEP 0: Configuration — load shared source and destination names.
-# MAGIC %run ../00_setup/00_setup
+# STEP 0: Configuration — shared setup was loaded at the start of this notebook.
 
 # STEP 1: Imports — load aggregation functions.
 from pyspark.sql import functions as F

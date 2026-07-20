@@ -1,10 +1,11 @@
 # Databricks notebook source
+# MAGIC %run ../00_setup/00_setup
+
 # Bronze 07 — Ingest the multi-line JSON returns file.
 
 # COMMAND ----------
 
-# STEP 0: Configuration — load shared source and destination names.
-# MAGIC %run ../00_setup/00_setup
+# STEP 0: Configuration — shared setup was loaded at the start of this notebook.
 
 # STEP 1: Imports — load Spark types and functions.
 from pyspark.sql.types import StructType, StructField, StringType, IntegerType

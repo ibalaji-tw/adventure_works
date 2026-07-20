@@ -1,10 +1,11 @@
 # Databricks notebook source
+# MAGIC %run ../00_setup/00_setup
+
 # Silver 05 — Parse and standardize return events.
 
 # COMMAND ----------
 
-# STEP 0: Configuration — load shared source and destination names.
-# MAGIC %run ../00_setup/00_setup
+# STEP 0: Configuration — shared setup was loaded at the start of this notebook.
 
 # STEP 1: Imports — load functions for dates and type casting.
 from pyspark.sql import functions as F
