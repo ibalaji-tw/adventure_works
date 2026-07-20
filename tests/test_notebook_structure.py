@@ -3,10 +3,11 @@ from pathlib import Path
 
 
 PROJECT = Path(__file__).parents[1]
+PIPELINE = PROJECT / "databricks_medallion_pipeline"
 LAYER_DIRS = [
-    PROJECT / "from_scratch" / "01_bronze",
-    PROJECT / "from_scratch" / "02_silver",
-    PROJECT / "from_scratch" / "03_gold",
+    PIPELINE / "01_bronze",
+    PIPELINE / "02_silver",
+    PIPELINE / "03_gold",
 ]
 
 
@@ -27,7 +28,7 @@ def test_all_layer_notebooks_load_shared_setup():
 
 
 def test_setup_contains_all_layer_names_and_source_root():
-    setup = (PROJECT / "from_scratch" / "00_setup" / "00_setup.py").read_text()
+    setup = (PIPELINE / "00_setup" / "00_setup.py").read_text()
     assert 'catalog_name = "adventure_works"' in setup
     assert 'source_root = "dbfs:/FileStore/adventure"' in setup
     for layer in ("bronze", "silver", "gold"):

@@ -12,7 +12,7 @@ spark.sql(f"CREATE SCHEMA IF NOT EXISTS {catalog_name}.gold")
 # COMMAND ----------
 
 # STEP 2: Project location — change this when uploading the project elsewhere.
-workspace_base_path = "/Workspace/Shared/adventure_final_project/from_scratch"
+workspace_base_path = "/Workspace/Shared/adventure_final_project/databricks_medallion_pipeline"
 
 # COMMAND ----------
 

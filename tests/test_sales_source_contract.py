@@ -4,7 +4,7 @@ from collections import Counter
 from pathlib import Path
 
 
-SALES_DIR = Path(__file__).parents[2] / "adventure-spark" / "Dataset" / "sales"
+SALES_DIR = Path(__file__).parents[1] / "data" / "sales"
 
 
 def read_sales():

@@ -9,7 +9,7 @@ from pyspark.sql import SparkSession
 from pyspark.sql.types import StructField, StructType, StringType, IntegerType
 
 
-DATA_ROOT = Path(os.environ.get("ADVENTURE_DATA_ROOT", "/workspace/adventure-spark/Dataset"))
+DATA_ROOT = Path(os.environ.get("ADVENTURE_DATA_ROOT", "/workspace/adventure_final_project/data"))
 
 
 @pytest.fixture(scope="session")

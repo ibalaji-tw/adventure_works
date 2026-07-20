@@ -10,7 +10,6 @@ RUN pip install --no-cache-dir \
     pytest==8.3.5
 
 COPY adventure_final_project /workspace/adventure_final_project
-COPY adventure-spark/Dataset /workspace/adventure-spark/Dataset
 
 ENV PYTHONPATH=/workspace/adventure_final_project
 ENV SPARK_LOCAL_IP=127.0.0.1
