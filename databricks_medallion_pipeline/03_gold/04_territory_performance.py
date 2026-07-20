@@ -1,7 +1,9 @@
 # Databricks notebook source
-# MAGIC %run ../00_setup/00_setup
-
 # Gold 04 — Territory sales and return performance.
+
+# COMMAND ----------
+
+# MAGIC %run ../00_setup/00_setup
 
 # COMMAND ----------
 

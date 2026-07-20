@@ -1,7 +1,9 @@
 # Databricks notebook source
-# MAGIC %run ../00_setup/00_setup
-
 # Bronze 03 — Ingest product master data.
+
+# COMMAND ----------
+
+# MAGIC %run ../00_setup/00_setup
 
 # COMMAND ----------
 

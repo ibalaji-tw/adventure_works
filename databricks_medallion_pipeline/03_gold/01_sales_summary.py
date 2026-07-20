@@ -1,7 +1,9 @@
 # Databricks notebook source
-# MAGIC %run ../00_setup/00_setup
-
 # Gold 01 — Sales trend and commercial KPI table.
+
+# COMMAND ----------
+
+# MAGIC %run ../00_setup/00_setup
 
 # COMMAND ----------
 

@@ -1,7 +1,9 @@
 # Databricks notebook source
-# MAGIC %run ../00_setup/00_setup
-
 # Silver 01 — Clean customers and protect email addresses.
+
+# COMMAND ----------
+
+# MAGIC %run ../00_setup/00_setup
 
 # COMMAND ----------
 

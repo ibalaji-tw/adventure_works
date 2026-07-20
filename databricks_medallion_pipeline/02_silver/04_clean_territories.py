@@ -1,7 +1,9 @@
 # Databricks notebook source
-# MAGIC %run ../00_setup/00_setup
-
 # Silver 04 — Standardize territories and protect the manager email.
+
+# COMMAND ----------
+
+# MAGIC %run ../00_setup/00_setup
 
 # COMMAND ----------
 

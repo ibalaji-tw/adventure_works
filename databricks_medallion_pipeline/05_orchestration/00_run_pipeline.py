@@ -1,8 +1,10 @@
 # Databricks notebook source
-# MAGIC %run ../00_setup/00_setup
-
 # Simple dependency-aware orchestration for the Databricks Medallion project.
 # Update this once after uploading the folder to your workspace.
+
+# COMMAND ----------
+
+# MAGIC %run ../00_setup/00_setup
 
 # COMMAND ----------
 

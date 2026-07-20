@@ -31,5 +31,6 @@ def test_setup_contains_all_layer_names_and_source_root():
     setup = (PIPELINE / "00_setup" / "00_setup.py").read_text()
     assert 'catalog_name = "adventure_works"' in setup
     assert 'source_root = "dbfs:/FileStore/adventure"' in setup
+    assert 'customers_source_path = f"{source_root}/AdventureWorks-Customers.csv"' in setup
     for layer in ("bronze", "silver", "gold"):
         assert f".{layer}" in setup

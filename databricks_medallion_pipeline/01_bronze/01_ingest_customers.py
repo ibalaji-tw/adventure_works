@@ -1,6 +1,4 @@
 # Databricks notebook source
-# MAGIC %run ../00_setup/00_setup
-
 # MAGIC %md
 # MAGIC # Bronze 01 — Ingest Customers
 # MAGIC
@@ -9,6 +7,10 @@
 # MAGIC **Why this is Bronze:** We preserve the source field names and values. We do
 # MAGIC not yet clean currency, rename columns, or mask email addresses. That keeps
 # MAGIC the landing layer replayable and makes the Silver rules easy to audit.
+
+# COMMAND ----------
+
+# MAGIC %run ../00_setup/00_setup
 
 # COMMAND ----------
 
