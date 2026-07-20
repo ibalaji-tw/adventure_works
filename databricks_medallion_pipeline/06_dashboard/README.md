@@ -15,6 +15,10 @@ The customer segments are defined in the Gold customer-value notebook: High Valu
 customers are at or above the 75th-percentile lifetime value, Repeat customers have
 at least two orders, and the remaining customers are Standard.
 
+For a Databricks-native Python/Plotly version, run the notebooks in
+`databricks_plotly/`. They read the Gold Delta tables through Spark and render
+the same three report pages directly in Databricks notebook output cells.
+
 ## Import in Databricks
 
 1. Run the setup, Bronze, Silver, Gold, and quality notebooks so the tables exist.
