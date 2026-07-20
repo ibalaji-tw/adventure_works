@@ -76,6 +76,48 @@
       "queryLines": [
         "SELECT\n  COUNT(*) AS total_products,\n  SUM(revenue) AS product_revenue,\n  SUM(gross_profit) AS product_gross_profit,\n  AVG(gross_margin_pct) AS average_product_margin\nFROM adventure_works.gold.product_performance"
       ]
+    },
+    {
+      "name": "f1a2b3c4",
+      "displayName": "Orders by Category",
+      "queryLines": [
+        "SELECT category_name, SUM(units_sold) AS total_orders\nFROM adventure_works.gold.category_performance\nGROUP BY category_name\nORDER BY total_orders DESC"
+      ]
+    },
+    {
+      "name": "a2b3c4d5",
+      "displayName": "Orders by Subcategory",
+      "queryLines": [
+        "SELECT subcategory_name, SUM(units_sold) AS total_orders\nFROM adventure_works.gold.product_performance\nGROUP BY subcategory_name\nORDER BY total_orders DESC\nLIMIT 20"
+      ]
+    },
+    {
+      "name": "b3c4d5e6",
+      "displayName": "Product Return Detail",
+      "queryLines": [
+        "SELECT product_name, sold_units, returned_units, return_rate_pct\nFROM adventure_works.gold.return_by_product\nORDER BY sold_units DESC\nLIMIT 30"
+      ]
+    },
+    {
+      "name": "c4d5e6f7",
+      "displayName": "Orders by Gender",
+      "queryLines": [
+        "SELECT COALESCE(gender, 'Unknown') AS gender, SUM(order_count) AS order_count\nFROM adventure_works.gold.customer_value\nGROUP BY COALESCE(gender, 'Unknown')\nORDER BY order_count DESC"
+      ]
+    },
+    {
+      "name": "d5e6f7a8",
+      "displayName": "Orders by Income Band",
+      "queryLines": [
+        "SELECT CASE WHEN annual_income < 50000 THEN 'Low' WHEN annual_income < 100000 THEN 'Average' ELSE 'High' END AS income_band, SUM(order_count) AS order_count\nFROM adventure_works.gold.customer_value\nGROUP BY CASE WHEN annual_income < 50000 THEN 'Low' WHEN annual_income < 100000 THEN 'Average' ELSE 'High' END\nORDER BY order_count DESC"
+      ]
+    },
+    {
+      "name": "e6f7a8b9",
+      "displayName": "Orders by Occupation",
+      "queryLines": [
+        "SELECT COALESCE(occupation, 'Unknown') AS occupation, SUM(order_count) AS order_count\nFROM adventure_works.gold.customer_value\nGROUP BY COALESCE(occupation, 'Unknown')\nORDER BY order_count DESC"
+      ]
     }
   ],
   "pages": [
@@ -173,6 +215,30 @@
             "spec": {"encodings": {"columns": [{"fieldName": "customer_segment", "displayName": "Segment", "type": "string", "visible": true, "order": 0}, {"fieldName": "customer_count", "displayName": "Customers", "type": "number", "visible": true, "order": 1}, {"fieldName": "revenue", "displayName": "Revenue", "type": "number", "visible": true, "order": 2}, {"fieldName": "average_customer_value", "displayName": "Average Value", "type": "number", "visible": true, "order": 3}]}, "frame": {"showTitle": true, "title": "Customer Segment Value"}, "version": 1, "widgetType": "table"}
           },
           "position": {"x": 0, "y": 20, "width": 12, "height": 5}
+        },
+        {
+          "widget": {
+            "name": "2222dddd",
+            "queries": [{"name": "main_query", "query": {"datasetName": "f1a2b3c4", "fields": [{"name": "category_name", "expression": "`category_name`"}, {"name": "total_orders", "expression": "`total_orders`"}], "disaggregated": true}}],
+            "spec": {"encodings": {"x": {"fieldName": "category_name", "displayName": "Category", "scale": {"type": "categorical"}}, "y": {"fieldName": "total_orders", "displayName": "Orders", "scale": {"type": "quantitative"}}}, "frame": {"showTitle": true, "title": "Total Orders by Category"}, "version": 3, "widgetType": "bar"}
+          },
+          "position": {"x": 0, "y": 25, "width": 6, "height": 6}
+        },
+        {
+          "widget": {
+            "name": "3333dddd",
+            "queries": [{"name": "main_query", "query": {"datasetName": "a2b3c4d5", "fields": [{"name": "subcategory_name", "expression": "`subcategory_name`"}, {"name": "total_orders", "expression": "`total_orders`"}], "disaggregated": true}}],
+            "spec": {"encodings": {"x": {"fieldName": "subcategory_name", "displayName": "Subcategory", "scale": {"type": "categorical"}}, "y": {"fieldName": "total_orders", "displayName": "Orders", "scale": {"type": "quantitative"}}}, "frame": {"showTitle": true, "title": "Total Orders by Subcategory"}, "version": 3, "widgetType": "bar"}
+          },
+          "position": {"x": 6, "y": 25, "width": 6, "height": 6}
+        },
+        {
+          "widget": {
+            "name": "4444dddd",
+            "queries": [{"name": "main_query", "query": {"datasetName": "b3c4d5e6", "fields": [{"name": "product_name", "expression": "`product_name`"}, {"name": "sold_units", "expression": "`sold_units`"}, {"name": "returned_units", "expression": "`returned_units`"}, {"name": "return_rate_pct", "expression": "`return_rate_pct`"}], "disaggregated": true}}],
+            "spec": {"encodings": {"columns": [{"fieldName": "product_name", "displayName": "Product", "type": "string", "visible": true, "order": 0}, {"fieldName": "sold_units", "displayName": "Sold Units", "type": "integer", "visible": true, "order": 1}, {"fieldName": "returned_units", "displayName": "Returned Units", "type": "integer", "visible": true, "order": 2}, {"fieldName": "return_rate_pct", "displayName": "Return Rate %", "type": "float", "visible": true, "order": 3}]}, "frame": {"showTitle": true, "title": "Product Return Detail"}, "version": 1, "widgetType": "table"}
+          },
+          "position": {"x": 0, "y": 31, "width": 12, "height": 7}
         }
       ],
       "pageType": "PAGE_TYPE_CANVAS"
@@ -224,11 +290,35 @@
         },
         {
           "widget": {
+            "name": "eeee4444",
+            "queries": [{"name": "main_query", "query": {"datasetName": "c4d5e6f7", "fields": [{"name": "gender", "expression": "`gender`"}, {"name": "order_count", "expression": "`order_count`"}], "disaggregated": true}}],
+            "spec": {"encodings": {"angle": {"fieldName": "order_count", "displayName": "Orders", "scale": {"type": "quantitative"}}, "color": {"fieldName": "gender", "displayName": "Gender", "scale": {"type": "categorical"}}}, "frame": {"showTitle": true, "title": "Orders by Gender"}, "version": 3, "widgetType": "pie"}
+          },
+          "position": {"x": 0, "y": 4, "width": 4, "height": 5}
+        },
+        {
+          "widget": {
+            "name": "ffff4444",
+            "queries": [{"name": "main_query", "query": {"datasetName": "d5e6f7a8", "fields": [{"name": "income_band", "expression": "`income_band`"}, {"name": "order_count", "expression": "`order_count`"}], "disaggregated": true}}],
+            "spec": {"encodings": {"angle": {"fieldName": "order_count", "displayName": "Orders", "scale": {"type": "quantitative"}}, "color": {"fieldName": "income_band", "displayName": "Income Band", "scale": {"type": "categorical"}}}, "frame": {"showTitle": true, "title": "Orders by Income Band"}, "version": 3, "widgetType": "pie"}
+          },
+          "position": {"x": 4, "y": 4, "width": 4, "height": 5}
+        },
+        {
+          "widget": {
+            "name": "1111dddd",
+            "queries": [{"name": "main_query", "query": {"datasetName": "e6f7a8b9", "fields": [{"name": "occupation", "expression": "`occupation`"}, {"name": "order_count", "expression": "`order_count`"}], "disaggregated": true}}],
+            "spec": {"encodings": {"angle": {"fieldName": "order_count", "displayName": "Orders", "scale": {"type": "quantitative"}}, "color": {"fieldName": "occupation", "displayName": "Occupation", "scale": {"type": "categorical"}}}, "frame": {"showTitle": true, "title": "Orders by Occupation"}, "version": 3, "widgetType": "pie"}
+          },
+          "position": {"x": 8, "y": 4, "width": 4, "height": 5}
+        },
+        {
+          "widget": {
             "name": "dddd2222",
             "queries": [{"name": "main_query", "query": {"datasetName": "f6a7b8c9", "fields": [{"name": "customer_segment", "expression": "`customer_segment`"}, {"name": "revenue", "expression": "`revenue`"}], "disaggregated": false}}],
             "spec": {"encodings": {"x": {"fieldName": "customer_segment", "displayName": "Segment", "scale": {"type": "categorical"}}, "y": {"fieldName": "revenue", "displayName": "Revenue", "scale": {"type": "quantitative"}}}, "frame": {"showTitle": true, "title": "Revenue by Customer Segment"}, "version": 3, "widgetType": "bar"}
           },
-          "position": {"x": 0, "y": 4, "width": 6, "height": 6}
+          "position": {"x": 0, "y": 9, "width": 6, "height": 6}
         },
         {
           "widget": {
@@ -236,7 +326,7 @@
             "queries": [{"name": "main_query", "query": {"datasetName": "f6a7b8c9", "fields": [{"name": "customer_segment", "expression": "`customer_segment`"}, {"name": "average_customer_value", "expression": "`average_customer_value`"}], "disaggregated": false}}],
             "spec": {"encodings": {"x": {"fieldName": "customer_segment", "displayName": "Segment", "scale": {"type": "categorical"}}, "y": {"fieldName": "average_customer_value", "displayName": "Average Customer Value", "scale": {"type": "quantitative"}}}, "frame": {"showTitle": true, "title": "Average Customer Value by Segment"}, "version": 3, "widgetType": "bar"}
           },
-          "position": {"x": 6, "y": 4, "width": 6, "height": 6}
+          "position": {"x": 6, "y": 9, "width": 6, "height": 6}
         },
         {
           "widget": {
@@ -244,7 +334,7 @@
             "queries": [{"name": "main_query", "query": {"datasetName": "b7c8d9e0", "fields": [{"name": "full_name", "expression": "`full_name`"}, {"name": "customer_segment", "expression": "`customer_segment`"}, {"name": "order_count", "expression": "`order_count`"}, {"name": "lifetime_value", "expression": "`lifetime_value`"}, {"name": "last_order_date", "expression": "`last_order_date`"}], "disaggregated": false}}],
             "spec": {"encodings": {"columns": [{"fieldName": "full_name", "displayName": "Customer", "type": "string", "visible": true, "order": 0}, {"fieldName": "customer_segment", "displayName": "Segment", "type": "string", "visible": true, "order": 1}, {"fieldName": "order_count", "displayName": "Orders", "type": "integer", "visible": true, "order": 2}, {"fieldName": "lifetime_value", "displayName": "Lifetime Value", "type": "float", "visible": true, "order": 3}, {"fieldName": "last_order_date", "displayName": "Last Order", "type": "date", "visible": true, "order": 4}]}, "frame": {"showTitle": true, "title": "Top Customers by Lifetime Value"}, "version": 1, "widgetType": "table"}
           },
-          "position": {"x": 0, "y": 10, "width": 12, "height": 7}
+          "position": {"x": 0, "y": 15, "width": 12, "height": 7}
         }
       ],
       "pageType": "PAGE_TYPE_CANVAS"
