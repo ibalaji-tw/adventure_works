@@ -78,21 +78,10 @@
             "name": "1111aaaa",
             "multilineTextboxSpec": {
               "lines": [
-                {
-                  "text": "Adventure Works Executive Dashboard",
-                  "lines": [
-                    {"text": "Adventure Works Executive Dashboard", "indentation": 0}
-                  ]
-                },
-                {
-                  "text": "Revenue, profitability, customers, territories and returns from the Gold layer.",
-                  "lines": [
-                    {"text": "Revenue, profitability, customers, territories and returns from the Gold layer.", "indentation": 0}
-                  ]
-                }
+                "# Adventure Works Executive Dashboard",
+                "Revenue, profitability, customers, territories and returns from the Gold layer."
               ]
-            },
-            "spec": {"version": 1, "widgetType": "multilineTextbox"}
+            }
           },
           "position": {"x": 0, "y": 0, "width": 12, "height": 2}
         },
@@ -176,7 +165,8 @@
           },
           "position": {"x": 0, "y": 20, "width": 12, "height": 5}
         }
-      ]
+      ],
+      "pageType": "PAGE_TYPE_CANVAS"
     }
   ]
 }
