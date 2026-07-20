@@ -66,6 +66,26 @@
         "FROM adventure_works.gold.return_by_category",
         "ORDER BY return_rate_pct DESC"
       ]
+    },
+    {
+      "name": "b7c8d9e0",
+      "displayName": "Customer Detail",
+      "queryLines": [
+        "SELECT customer_id, full_name, customer_segment, order_count, units_purchased, lifetime_value, last_order_date, occupation",
+        "FROM adventure_works.gold.customer_value",
+        "ORDER BY lifetime_value DESC",
+        "LIMIT 100"
+      ]
+    },
+    {
+      "name": "c8d9e0f1",
+      "displayName": "Product Detail",
+      "queryLines": [
+        "SELECT product_id, product_name, category_name, subcategory_name, units_sold, order_count, revenue, gross_profit, gross_margin_pct, profit_rank",
+        "FROM adventure_works.gold.product_performance",
+        "ORDER BY profit_rank",
+        "LIMIT 100"
+      ]
     }
   ],
   "pages": [
@@ -78,8 +98,7 @@
             "name": "1111aaaa",
             "multilineTextboxSpec": {
               "lines": [
-                "# Adventure Works Executive Dashboard",
-                "Revenue, profitability, customers, territories and returns from the Gold layer."
+                "# Adventure Works Executive Dashboard\n\nRevenue, profitability, customers, territories and returns from the Gold layer."
               ]
             }
           },
@@ -121,7 +140,7 @@
           "widget": {
             "name": "6666aaaa",
             "queries": [{"name": "main_query", "query": {"datasetName": "b2c3d4e5", "fields": [{"name": "order_month_start", "expression": "`order_month_start`"}, {"name": "revenue", "expression": "`revenue`"}], "disaggregated": false}}],
-            "spec": {"encodings": {"x": {"fieldName": "order_month_start", "displayName": "Month", "scale": {"type": "temporal"}}, "y": {"fieldName": "revenue", "displayName": "Revenue"}}, "frame": {"showTitle": true, "title": "Monthly Revenue Trend"}, "version": 3, "widgetType": "line"}
+            "spec": {"encodings": {"x": {"fieldName": "order_month_start", "displayName": "Month", "scale": {"type": "temporal"}}, "y": {"fieldName": "revenue", "displayName": "Revenue", "scale": {"type": "quantitative"}}}, "frame": {"showTitle": true, "title": "Monthly Revenue Trend"}, "version": 3, "widgetType": "line"}
           },
           "position": {"x": 0, "y": 4, "width": 6, "height": 5}
         },
@@ -129,7 +148,7 @@
           "widget": {
             "name": "7777aaaa",
             "queries": [{"name": "main_query", "query": {"datasetName": "c3d4e5f6", "fields": [{"name": "category_name", "expression": "`category_name`"}, {"name": "revenue", "expression": "`revenue`"}], "disaggregated": false}}],
-            "spec": {"encodings": {"x": {"fieldName": "category_name", "displayName": "Category"}, "y": {"fieldName": "revenue", "displayName": "Revenue"}}, "frame": {"showTitle": true, "title": "Revenue by Category"}, "version": 3, "widgetType": "bar"}
+            "spec": {"encodings": {"x": {"fieldName": "category_name", "displayName": "Category", "scale": {"type": "categorical"}}, "y": {"fieldName": "revenue", "displayName": "Revenue", "scale": {"type": "quantitative"}}}, "frame": {"showTitle": true, "title": "Revenue by Category"}, "version": 3, "widgetType": "bar"}
           },
           "position": {"x": 6, "y": 4, "width": 6, "height": 5}
         },
@@ -137,7 +156,7 @@
           "widget": {
             "name": "8888aaaa",
             "queries": [{"name": "main_query", "query": {"datasetName": "d4e5f6a7", "fields": [{"name": "region", "expression": "`region`"}, {"name": "revenue", "expression": "`revenue`"}], "disaggregated": false}}],
-            "spec": {"encodings": {"x": {"fieldName": "region", "displayName": "Region"}, "y": {"fieldName": "revenue", "displayName": "Revenue"}}, "frame": {"showTitle": true, "title": "Revenue by Territory"}, "version": 3, "widgetType": "bar"}
+            "spec": {"encodings": {"x": {"fieldName": "region", "displayName": "Region", "scale": {"type": "categorical"}}, "y": {"fieldName": "revenue", "displayName": "Revenue", "scale": {"type": "quantitative"}}}, "frame": {"showTitle": true, "title": "Revenue by Territory"}, "version": 3, "widgetType": "bar"}
           },
           "position": {"x": 0, "y": 9, "width": 6, "height": 5}
         },
@@ -145,7 +164,7 @@
           "widget": {
             "name": "9999aaaa",
             "queries": [{"name": "main_query", "query": {"datasetName": "a7b8c9d0", "fields": [{"name": "category_name", "expression": "`category_name`"}, {"name": "return_rate_pct", "expression": "`return_rate_pct`"}], "disaggregated": false}}],
-            "spec": {"encodings": {"x": {"fieldName": "category_name", "displayName": "Category"}, "y": {"fieldName": "return_rate_pct", "displayName": "Return Rate (%)"}}, "frame": {"showTitle": true, "title": "Return Rate by Category"}, "version": 3, "widgetType": "bar"}
+            "spec": {"encodings": {"x": {"fieldName": "category_name", "displayName": "Category", "scale": {"type": "categorical"}}, "y": {"fieldName": "return_rate_pct", "displayName": "Return Rate (%)", "scale": {"type": "quantitative"}}}, "frame": {"showTitle": true, "title": "Return Rate by Category"}, "version": 3, "widgetType": "bar"}
           },
           "position": {"x": 6, "y": 9, "width": 6, "height": 5}
         },
@@ -164,6 +183,86 @@
             "spec": {"encodings": {"columns": [{"fieldName": "customer_segment", "displayName": "Segment", "type": "string", "visible": true, "order": 0}, {"fieldName": "customer_count", "displayName": "Customers", "type": "number", "visible": true, "order": 1}, {"fieldName": "revenue", "displayName": "Revenue", "type": "number", "visible": true, "order": 2}, {"fieldName": "average_customer_value", "displayName": "Average Value", "type": "number", "visible": true, "order": 3}]}, "frame": {"showTitle": true, "title": "Customer Segment Value"}, "version": 1, "widgetType": "table"}
           },
           "position": {"x": 0, "y": 20, "width": 12, "height": 5}
+        }
+      ],
+      "pageType": "PAGE_TYPE_CANVAS"
+    },
+    {
+      "name": "2345bcde",
+      "displayName": "Customer Insights",
+      "layout": [
+        {
+          "widget": {
+            "name": "cccc2222",
+            "multilineTextboxSpec": {
+              "lines": ["# Customer Insights\n\nUnderstand customer value, segments and buying behaviour."]
+            }
+          },
+          "position": {"x": 0, "y": 0, "width": 12, "height": 2}
+        },
+        {
+          "widget": {
+            "name": "dddd2222",
+            "queries": [{"name": "main_query", "query": {"datasetName": "f6a7b8c9", "fields": [{"name": "customer_segment", "expression": "`customer_segment`"}, {"name": "revenue", "expression": "`revenue`"}], "disaggregated": false}}],
+            "spec": {"encodings": {"x": {"fieldName": "customer_segment", "displayName": "Segment", "scale": {"type": "categorical"}}, "y": {"fieldName": "revenue", "displayName": "Revenue", "scale": {"type": "quantitative"}}}, "frame": {"showTitle": true, "title": "Revenue by Customer Segment"}, "version": 3, "widgetType": "bar"}
+          },
+          "position": {"x": 0, "y": 2, "width": 6, "height": 6}
+        },
+        {
+          "widget": {
+            "name": "eeee2222",
+            "queries": [{"name": "main_query", "query": {"datasetName": "f6a7b8c9", "fields": [{"name": "customer_segment", "expression": "`customer_segment`"}, {"name": "average_customer_value", "expression": "`average_customer_value`"}], "disaggregated": false}}],
+            "spec": {"encodings": {"x": {"fieldName": "customer_segment", "displayName": "Segment", "scale": {"type": "categorical"}}, "y": {"fieldName": "average_customer_value", "displayName": "Average Customer Value", "scale": {"type": "quantitative"}}}, "frame": {"showTitle": true, "title": "Average Customer Value by Segment"}, "version": 3, "widgetType": "bar"}
+          },
+          "position": {"x": 6, "y": 2, "width": 6, "height": 6}
+        },
+        {
+          "widget": {
+            "name": "ffff2222",
+            "queries": [{"name": "main_query", "query": {"datasetName": "b7c8d9e0", "fields": [{"name": "full_name", "expression": "`full_name`"}, {"name": "customer_segment", "expression": "`customer_segment`"}, {"name": "order_count", "expression": "`order_count`"}, {"name": "lifetime_value", "expression": "`lifetime_value`"}, {"name": "last_order_date", "expression": "`last_order_date`"}], "disaggregated": false}}],
+            "spec": {"encodings": {"columns": [{"fieldName": "full_name", "displayName": "Customer", "type": "string", "visible": true, "order": 0}, {"fieldName": "customer_segment", "displayName": "Segment", "type": "string", "visible": true, "order": 1}, {"fieldName": "order_count", "displayName": "Orders", "type": "integer", "visible": true, "order": 2}, {"fieldName": "lifetime_value", "displayName": "Lifetime Value", "type": "float", "visible": true, "order": 3}, {"fieldName": "last_order_date", "displayName": "Last Order", "type": "date", "visible": true, "order": 4}]}, "frame": {"showTitle": true, "title": "Top Customers by Lifetime Value"}, "version": 1, "widgetType": "table"}
+          },
+          "position": {"x": 0, "y": 8, "width": 12, "height": 7}
+        }
+      ],
+      "pageType": "PAGE_TYPE_CANVAS"
+    },
+    {
+      "name": "3456cdef",
+      "displayName": "Product Details",
+      "layout": [
+        {
+          "widget": {
+            "name": "1111bbbb",
+            "multilineTextboxSpec": {
+              "lines": ["# Product Details\n\nExplore product profitability, category contribution and margin performance."]
+            }
+          },
+          "position": {"x": 0, "y": 0, "width": 12, "height": 2}
+        },
+        {
+          "widget": {
+            "name": "2222bbbb",
+            "queries": [{"name": "main_query", "query": {"datasetName": "c3d4e5f6", "fields": [{"name": "category_name", "expression": "`category_name`"}, {"name": "revenue", "expression": "`revenue`"}, {"name": "gross_profit", "expression": "`gross_profit`"}], "disaggregated": false}}],
+            "spec": {"encodings": {"x": {"fieldName": "category_name", "displayName": "Category", "scale": {"type": "categorical"}}, "y": {"fieldName": "revenue", "displayName": "Revenue", "scale": {"type": "quantitative"}}}, "frame": {"showTitle": true, "title": "Category Revenue"}, "version": 3, "widgetType": "bar"}
+          },
+          "position": {"x": 0, "y": 2, "width": 6, "height": 6}
+        },
+        {
+          "widget": {
+            "name": "3333bbbb",
+            "queries": [{"name": "main_query", "query": {"datasetName": "e5f6a7b8", "fields": [{"name": "product_name", "expression": "`product_name`"}, {"name": "gross_profit", "expression": "`gross_profit`"}], "disaggregated": false}}],
+            "spec": {"encodings": {"x": {"fieldName": "product_name", "displayName": "Product", "scale": {"type": "categorical"}}, "y": {"fieldName": "gross_profit", "displayName": "Gross Profit", "scale": {"type": "quantitative"}}}, "frame": {"showTitle": true, "title": "Top Products by Gross Profit"}, "version": 3, "widgetType": "bar"}
+          },
+          "position": {"x": 6, "y": 2, "width": 6, "height": 6}
+        },
+        {
+          "widget": {
+            "name": "4444bbbb",
+            "queries": [{"name": "main_query", "query": {"datasetName": "c8d9e0f1", "fields": [{"name": "product_name", "expression": "`product_name`"}, {"name": "category_name", "expression": "`category_name`"}, {"name": "units_sold", "expression": "`units_sold`"}, {"name": "revenue", "expression": "`revenue`"}, {"name": "gross_profit", "expression": "`gross_profit`"}, {"name": "gross_margin_pct", "expression": "`gross_margin_pct`"}], "disaggregated": false}}],
+            "spec": {"encodings": {"columns": [{"fieldName": "product_name", "displayName": "Product", "type": "string", "visible": true, "order": 0}, {"fieldName": "category_name", "displayName": "Category", "type": "string", "visible": true, "order": 1}, {"fieldName": "units_sold", "displayName": "Units Sold", "type": "integer", "visible": true, "order": 2}, {"fieldName": "revenue", "displayName": "Revenue", "type": "float", "visible": true, "order": 3}, {"fieldName": "gross_profit", "displayName": "Gross Profit", "type": "float", "visible": true, "order": 4}, {"fieldName": "gross_margin_pct", "displayName": "Margin %", "type": "float", "visible": true, "order": 5}]}, "frame": {"showTitle": true, "title": "Product Profitability Detail"}, "version": 1, "widgetType": "table"}
+          },
+          "position": {"x": 0, "y": 8, "width": 12, "height": 8}
         }
       ],
       "pageType": "PAGE_TYPE_CANVAS"
