@@ -18,7 +18,7 @@ workspace_base_path = "/Workspace/Shared/adventure_final_project/databricks_meda
 
 # STEP 3: Source location — all source files live below this root folder.
 source_root = "dbfs:/FileStore/adventure"
-customers_source_path = f"{source_root}/AdventureWorks-Customers.csv"
+customers_source_path = f"{source_root}/AdventureWorks_Customers.csv"
 sales_source_path = f"{source_root}/sales/"
 products_source_path = f"{source_root}/AdventureWorks_Products.csv"
 categories_source_path = f"{source_root}/AdventureWorks_Product_Categories.csv"
