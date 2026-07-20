@@ -2,14 +2,18 @@
 
 `Adventure_Works_Executive_Dashboard.lvdash.json` is a Databricks Lakeview dashboard definition. It reads only from the curated Gold tables in `adventure_works.gold`.
 
-## Dashboard contents
+## Dashboard pages and metrics
 
-- Total revenue, orders, units sold, and gross profit KPI cards
-- Monthly revenue trend
-- Revenue by category and territory
-- Return rate by category
-- Top products by gross profit
-- Customer segment value
+- **Executive Summary:** total revenue, orders, units sold, gross profit, monthly trend,
+  category revenue, territory revenue, and return rate.
+- **Customer Insights:** total customers plus High Value, Repeat, and Standard customer
+  counts, segment value charts, and top-customer detail.
+- **Product Details:** total products, product revenue, product gross profit, average
+  margin, category contribution, top-product profit, and product detail.
+
+The customer segments are defined in the Gold customer-value notebook: High Value
+customers are at or above the 75th-percentile lifetime value, Repeat customers have
+at least two orders, and the remaining customers are Standard.
 
 ## Import in Databricks
 
