@@ -4,87 +4,63 @@
       "name": "a1b2c3d4",
       "displayName": "Executive KPIs",
       "queryLines": [
-        "SELECT ",
-        "  SUM(revenue) AS total_revenue,",
-        "  SUM(order_count) AS total_orders,",
-        "  SUM(units_sold) AS total_units,",
-        "  SUM(gross_profit) AS total_gross_profit",
-        "FROM adventure_works.gold.sales_by_month"
+        "SELECT\n  SUM(revenue) AS total_revenue,\n  SUM(order_count) AS total_orders,\n  SUM(units_sold) AS total_units,\n  SUM(gross_profit) AS total_gross_profit\nFROM adventure_works.gold.sales_by_month"
       ]
     },
     {
       "name": "b2c3d4e5",
       "displayName": "Monthly Revenue Trend",
       "queryLines": [
-        "SELECT order_month_start, revenue, gross_profit, order_count, active_customers",
-        "FROM adventure_works.gold.sales_by_month",
-        "ORDER BY order_month_start"
+        "SELECT order_month_start, revenue, gross_profit, order_count, active_customers\nFROM adventure_works.gold.sales_by_month\nORDER BY order_month_start"
       ]
     },
     {
       "name": "c3d4e5f6",
       "displayName": "Category Performance",
       "queryLines": [
-        "SELECT category_name, units_sold, revenue, gross_profit, gross_margin_pct",
-        "FROM adventure_works.gold.category_performance",
-        "ORDER BY revenue DESC"
+        "SELECT category_name, units_sold, revenue, gross_profit, gross_margin_pct\nFROM adventure_works.gold.category_performance\nORDER BY revenue DESC"
       ]
     },
     {
       "name": "d4e5f6a7",
       "displayName": "Territory Performance",
       "queryLines": [
-        "SELECT region, country, continent, revenue, units_sold, order_count, return_rate",
-        "FROM adventure_works.gold.territory_performance",
-        "ORDER BY revenue DESC"
+        "SELECT region, country, continent, revenue, units_sold, order_count, return_rate\nFROM adventure_works.gold.territory_performance\nORDER BY revenue DESC"
       ]
     },
     {
       "name": "e5f6a7b8",
       "displayName": "Top Product Profitability",
       "queryLines": [
-        "SELECT product_name, category_name, subcategory_name, revenue, gross_profit, gross_margin_pct",
-        "FROM adventure_works.gold.product_performance",
-        "ORDER BY gross_profit DESC",
-        "LIMIT 20"
+        "SELECT product_name, category_name, subcategory_name, revenue, gross_profit, gross_margin_pct\nFROM adventure_works.gold.product_performance\nORDER BY gross_profit DESC\nLIMIT 20"
       ]
     },
     {
       "name": "f6a7b8c9",
       "displayName": "Customer Segments",
       "queryLines": [
-        "SELECT customer_segment, customer_count, revenue, average_customer_value",
-        "FROM adventure_works.gold.customer_segments",
-        "ORDER BY revenue DESC"
+        "SELECT customer_segment, customer_count, revenue, average_customer_value\nFROM adventure_works.gold.customer_segments\nORDER BY revenue DESC"
       ]
     },
     {
       "name": "a7b8c9d0",
       "displayName": "Return Rate by Category",
       "queryLines": [
-        "SELECT category_name, subcategory_name, sold_units, returned_units, return_rate_pct",
-        "FROM adventure_works.gold.return_by_category",
-        "ORDER BY return_rate_pct DESC"
+        "SELECT category_name, subcategory_name, sold_units, returned_units, return_rate_pct\nFROM adventure_works.gold.return_by_category\nORDER BY return_rate_pct DESC"
       ]
     },
     {
       "name": "b7c8d9e0",
       "displayName": "Customer Detail",
       "queryLines": [
-        "SELECT customer_id, full_name, customer_segment, order_count, units_purchased, lifetime_value, last_order_date, occupation",
-        "FROM adventure_works.gold.customer_value",
-        "ORDER BY lifetime_value DESC",
-        "LIMIT 100"
+        "SELECT customer_id, full_name, customer_segment, order_count, units_purchased, lifetime_value, last_order_date, occupation\nFROM adventure_works.gold.customer_value\nORDER BY lifetime_value DESC\nLIMIT 100"
       ]
     },
     {
       "name": "c8d9e0f1",
       "displayName": "Product Detail",
       "queryLines": [
-        "SELECT product_id, product_name, category_name, subcategory_name, units_sold, order_count, revenue, gross_profit, gross_margin_pct, profit_rank",
-        "FROM adventure_works.gold.product_performance",
-        "ORDER BY profit_rank",
-        "LIMIT 100"
+        "SELECT product_id, product_name, category_name, subcategory_name, units_sold, order_count, revenue, gross_profit, gross_margin_pct, profit_rank\nFROM adventure_works.gold.product_performance\nORDER BY profit_rank\nLIMIT 100"
       ]
     }
   ],
