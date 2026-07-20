@@ -1,0 +1,9 @@
+services:
+  adventure-spark-tests:
+    build:
+      context: ..
+      dockerfile: adventure_final_project/docker/Dockerfile
+    working_dir: /workspace
+    environment:
+      SPARK_LOCAL_IP: 127.0.0.1
+    command: ["pytest", "-q", "adventure_final_project/tests"]
